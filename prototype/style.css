@@ -1,0 +1,140 @@
+:root {
+    /* Formal Administrative Dark Theme */
+    --primary: #3b82f6;
+    /* Lighter blue for visibility on dark */
+    --primary-dark: #1e40af;
+    --bg-main: #020617;
+    /* Slate-950 */
+    --bg-sidebar: #0f172a;
+    /* Slate-900 */
+    --bg-card: #1e293b;
+    /* Slate-800 */
+    --border: #334155;
+    /* Slate-700 */
+    --text-main: #f1f5f9;
+    /* Slate-100 */
+    --text-muted: #94a3b8;
+    /* Slate-400 */
+    --status-transit: #60a5fa;
+    --status-approaching: #4ade80;
+    --status-stalled: #f87171;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Header Refinement - Dark Mode */
+header {
+    background-color: var(--bg-sidebar);
+    border-bottom: 2px solid var(--primary-dark);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* Van Cards - Formal Dark Style */
+.van-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.van-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    background: #273549;
+    /* Slightly lighter on hover */
+}
+
+.van-card.selected {
+    border-color: var(--primary);
+    background-color: #1e293b;
+    box-shadow: inset 0 0 0 1px var(--primary), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+/* Map Adjustments - Dark Mode Filter */
+#map {
+    background: #020617;
+}
+
+.leaflet-tile-pane {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(85%);
+}
+
+/* Standard Markers */
+.van-marker-container {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.van-marker svg {
+    color: var(--primary);
+    width: 28px;
+    height: 28px;
+}
+
+/* Terminal Marker */
+.terminal-marker-container {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+}
+
+/* Formal Status Badges */
+.status-badge {
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+/* Instruction Modal (Standard Dark Modal) */
+.tour-modal {
+    background: var(--bg-sidebar);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    color: var(--text-main);
+}
+
+.van-marker {
+    transition: transform 0.3s ease-out;
+}
+
+/* Tour Pulse Highlight */
+@keyframes markerPulse {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+        transform: scale(1);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(59, 130, 246, 1));
+        transform: scale(1.5);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+        transform: scale(1);
+    }
+}
+
+.pulse-highlight svg {
+    animation: markerPulse 1.5s infinite ease-in-out;
+    color: #60a5fa !important;
+}

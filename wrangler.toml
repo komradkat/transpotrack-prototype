@@ -1,0 +1,5 @@
+name = "transpotrack-prototype"
+pages_build_output_dir = "prototype"
+
+[vars]
+ENVIRONMENT = "production"
